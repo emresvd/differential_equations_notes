@@ -1,0 +1,1 @@
+the notes i prepared while studying for the midterm exam of the differential equations course. i might not have written some things because i prepared these notes for myself. if there are any mistakes in my notes, feel free to submit a pull request.
