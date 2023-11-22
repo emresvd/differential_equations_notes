@@ -1,0 +1,827 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} % Required for matrices
+\usepackage[linktoc=all]{hyperref} % Required for linking
+
+\title{Differential Equations Notes}
+\author{\href{https://github.com/emresvd}{github.com/emresvd}}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\\~\\
+
+\section{Bernoulli Differential Equation}
+    \[
+    6 \cdot \left(y\right)' - 2 \cdot y = x \cdot y^4
+    \]
+    
+    \[
+    \textbf{Divide each side by 6 to leave } \left(y\right)' \textbf{ alone}
+    \]
+    
+    \[
+    \left(y\right)' - \frac{y}{3} = \frac{x}{6} \cdot y^4
+    \]
+    
+    \[
+    \textbf{So it became a Bernoulli format: } \left(y\right)' + P(x) \cdot y = Q(x) \cdot y^n
+    \]
+    
+    \[
+    \textbf{We need to make this transformation to solve this: } v = y^{(1-n)}
+    \]
+    
+    \[
+    v = y^{(-3)}
+    \]
+    
+    \[
+    \textbf{Let's take the derivative of v}
+    \]
+    
+    \[
+    \left(v\right)' = -3 \cdot y^{(-4)} \cdot \left(y\right)'
+    \]
+    
+    \[
+    \left(y\right)' - \frac{y}{3} = \frac{x}{6} \cdot y^4 \textbf{ where we multiply each side by} -3 \cdot y^{(-4)} \textbf{ to get } \left(v\right)'
+    \]
+    
+    \[
+    -3 \cdot y^{-4} \cdot \left(y\right)' + y^{-3} = -\frac{x}{2} \textbf{ this is a linear differential equation}
+    \]
+    
+    \[
+    \left(y\right)' + P(x) \cdot y = Q(x) \textbf{ looks like this}
+    \]
+    
+    \[
+    \textbf{So we can solve with the integration factor: } \mu = e^{\int \:1 \, dx} = e^x
+    \]
+    
+    \[
+    \left(e^x \cdot v\right)' = -\frac{x}{2} \cdot e^x
+    \]
+    
+    \[
+    \textbf{Let's take the integral of both sides: } \int \left(\left(e^x \cdot v\right)'\right) \, dx = \int \left(-\frac{x}{2} \cdot e^x\right) \, dx
+    \]
+    
+    \[
+    e^x \cdot v = -\frac{1}{2} \left(e^x \cdot x - x\right) + x
+    \]
+    
+    \textbf{Here } $v$ \textbf{ is left alone, then } $v$ \textbf{ is replaced by } y in the } $v-y$ \textbf{ equation and the solution is obtained.}
+\\~\\
+
+\section{Homogeneous Differential Equations}
+    \[
+    x \cdot y \cdot \left(y\right)' + 4 \cdot x^2 + y^2 = 0
+    \]
+    
+    \[
+    \textbf{Divide each side by } x \cdot y
+    \]
+    
+    \[
+    \frac{dy}{dx} = -4 \cdot \frac{x}{y} - \frac{y}{x}
+    \]
+    
+    \[
+    u = \frac{y}{x} \textbf{ transformation:}
+    \]
+    
+    \[
+    y = u \cdot x
+    \]
+    
+    \[
+    dy = u \cdot dx + x \cdot du
+    \]
+    
+    \[
+    \frac{dy}{dx} = u + \frac{x \cdot du}{dy}
+    \]
+    
+    \[
+    \textbf{If we substitute them in the equation: } u + \frac{x \cdot du}{dx} = -\frac{4}{u} - u
+    \]
+    
+    \[
+    \frac{x \cdot \:du}{dx} = -\frac{4}{u} - 2u
+    \]
+    
+    \[
+    \frac{x \cdot \:du}{dx} = -\frac{4+2u^2}{u}
+    \]
+    
+    \[
+    \frac{dx}{-x} = \frac{u \cdot du}{4+2u^2}
+    \]
+    
+    \[
+    \frac{1}{-x} \cdot dx = \frac{u}{4+2u^2} \cdot du
+    \]
+    
+    \[
+    \textbf{Let's take the integral of both sides: } \int \left(\frac{1}{-x}\right) \, dx = \int \left(\frac{u}{4+2u^2}\right) \, du
+    \]
+    
+    \[
+    -\ln\left|x\right| + \ln\left(c\right) = \frac{\ln\left|4+2u^2\right|}{4}
+    \]
+    
+    \[
+    \ln\left(\frac{c}{x}\right) = \ln\left(4+2u^2\right)^{\frac{1}{4}}
+    \]
+    
+    \[
+    \frac{c}{x^4} = 4+2u^2
+    \]
+    
+    \[
+    \frac{c}{x^4} - 2 = u^2 = \left(\frac{y}{x}\right)^2
+    \]
+    
+    \[
+    \textbf{Where if } y \textbf{ is left alone, the general solution is obtained.}
+    \]
+\\~\\
+
+\section{Differential Equations That Can Be Homogenized}
+    \[
+    \textbf{1. equation: } (7x+3y-1) \, dx + (3x-y+1) \, dy = 0
+    \]
+    
+    \[
+    \begin{vmatrix}
+        x_1 & y_1\\
+        x_2 & y_2
+    \end{vmatrix}
+    =
+    \left(-7 \cdot -1\right) - \left(-3 \cdot 3\right) \neq 0 \textbf{ and therefore linearly independent.}
+    \]
+    
+    \[
+    \frac{dy}{dx} = \frac{-7x-3y+1}{3x-y+1}
+    \]
+    
+    \[
+    \textbf{Let } x = \alpha + h, \quad y = \beta + k
+    \]
+    
+    \[
+    \frac{d\beta}{d\alpha} = \frac{-7\alpha - 7h - 3\beta - 3k + 1}{3\alpha + 3h - \beta - k + 1}
+    \]
+    
+    \[
+    -7h - 3k + 1 = 0
+    \]
+    
+    \[
+    3h -k + 1 = 0
+    \]
+    
+    \[
+    h = -\frac{1}{8}, \quad k = \frac{5}{8}
+    \]
+    
+    \[
+    \frac{d\beta}{d\alpha} = \frac{-7\alpha - 3\beta}{3\alpha - \beta} = \frac{\alpha \cdot \left(-7 - \frac{3\beta}{\alpha}\right)}{\alpha \cdot \left(3 - \frac{\beta}{\alpha}\right)}
+    \]
+    
+    \[
+    u = \frac{\beta}{\alpha} \textbf{ transformation:}
+    \]
+    
+    \[
+    \beta = u \cdot \alpha
+    \]
+    
+    \[
+    d \beta = u \cdot d \alpha + \alpha \cdot du
+    \]
+    
+    \[
+    \frac{d \beta}{d \alpha} = u + \frac{\alpha \cdot du}{d \alpha}
+    \]
+    
+    \[
+    \textbf{Let's take the integral of both sides: } u + \frac{\alpha \cdot du}{d\alpha} = \frac{-7 - 3u}{3 - u}
+    \]
+    
+    \[
+    \frac{\alpha \cdot du}{d\alpha} = \frac{-7 - 3u - 3u + u^2}{3 - u}
+    \]
+    
+    \[
+    \frac{d\alpha}{\alpha} = \frac{3 - u}{-7 - 6u + u^2} \cdot du
+    \]
+    
+    \[
+    \textbf{Let's take the integral of both sides: } \int \frac{1}{\alpha} \, d\alpha = \int \frac{3 - u}{-7 - 6u + u^2} \, du
+    \]
+    
+    \textbf{The integral on the right can be solved using the transformation } $m = -7 - 6u + u^2$ \textbf{.}
+    
+    \[
+    \ln|\alpha| + c = -\frac{1}{2} \ln|u^2 - 6u - 7|
+    \]
+    
+    \[
+    \textbf{The function } y \textbf{ can be found by substituting the necessary variables.}
+    \]
+
+    \[
+    \textbf{2. equation: } \left(x + 5y + 1\right) \, dx + \left(2x + 10y + 7\right) \, dy = 0
+    \]
+    
+    \[
+    \begin{vmatrix}
+        x_1 & y_1\\
+        x_2 & y_2
+    \end{vmatrix}
+    =
+    \left(1 \cdot 10\right) - \left(5 \cdot 2\right) = 0 \textbf{ and therefore linearly dependent.}
+    \]
+
+    \[
+    \textbf{Let } x + 5y = t \textbf{.}
+    \]
+
+    \[
+    dx + 5dy = dt
+    \]
+
+    \[
+    dy = \frac{dt - dx}{5}
+    \]
+
+    \[
+    \textbf{Let's put them in their places in the equation.}
+    \]
+
+    \[
+    \left(t + 1\right)dx + \left(2t + 7\right) \cdot \left(\frac{dt - dx}{5}\right) = 0
+    \]
+
+    \[
+    \textbf{Multiply each term of this equation by } 5 \textbf{.}
+    \]
+
+    \[
+    \left(5t + 5\right)dx + \left(2t + 7\right)\left(dt - dx\right) = 0
+    \]
+
+    \[
+    \textbf{Let's organize the equation.}
+    \]
+
+    \[
+    \left(5t + 5\right)dx + \left(2t\right)dt - \left(2t\right)dx + 7dt - 7dx = 0
+    \]
+
+    \[
+    dx\left(5t + 5 - 2t - 7\right) + dt\left(2t + 7\right) = 0
+    \]
+    
+    \[
+    dx\left(3t - 2\right) + dt\left(2t + 7\right) = 0
+    \]
+
+    \[
+    dx = \frac{2t + 7}{2 - 3t} \cdot dt
+    \]
+
+    \[
+    \textbf{Let's integrate both sides of the equation.}
+    \]
+    
+    \[
+    \int \, dx = \int \frac{2t + 7}{2 - 3t} \, dt
+    \]
+
+    \[
+    x + c = -\frac{2}{3} \cdot t - \frac{25}{3} \cdot \ln\left|2 - 3t\right|
+    \]
+
+    \textbf{When we substitute the necessary variables in the equation we find, we can reach the } $y$ \textbf{ function.}
+\\~\\
+
+\section{Bernoulli Differential Equation (Long Path)}
+    \[
+    \left(y\right)' + \frac{4}{x} \cdot y = x^3y^2
+    \]
+    
+    \textbf{This equation is a Bernoulli differential equation because it follows this format: } $\left(y\right)' + P(x) \cdot y = Q(x) \cdot y^n$
+    
+    \[
+    \textbf{We need to make this transformation to solve this: } v = y^{(1-n)}
+    \]
+    
+    \[
+    v = y^{(-1)}
+    \]
+    
+    \[
+    \left(v\right)' = -y^{(-2)} \cdot \left(y\right)'
+    \]
+    
+    \[
+    \left(y\right)' = -y^{(2)} \cdot \left(v\right)'
+    \]
+    
+    \[
+    \textbf{Let's replace } \left(y\right)' \textbf{ in the question: } -y^2 \cdot (v)' + \frac{4}{x} \cdot y = x^3y^2
+    \]
+    
+    \[
+    \textbf{Since } y = \frac{1}{v} \textbf{, let's write the } y \textbf{'s in the equation in terms of } v
+    \]
+    
+    \[
+    -\frac{(v)'}{v} + \frac{4}{x} = \frac{x^3}{v}
+    \]
+    
+    \[
+    \textbf{Multiply all terms by } -v
+    \]
+    
+    \[
+    (v)' - \frac{4}{x} \cdot v = -x^3
+    \]
+    
+    \textbf{The final equation, } $\left(y\right)' + P(x) \cdot y = Q(x)$ \textbf{ is a linear differential equation since it fits this format.}
+    
+    \[
+    \mu =e^{\int \:-\frac{4}{x}dx}=e^{-4\cdot ln\left|x\right|}=x^{-4}
+    \]
+    
+    \[
+    \left(x^{-4} \cdot v\right)' = -x^3 \cdot x^{-4} = -x^{-1}
+    \]
+    
+    \[
+    \int \left(x^{-4} \cdot v\right)' \, dx = \int -x^{-1} \, dx
+    \]
+    
+    \[
+    x^{-4} \cdot v = -\ln|x| + c
+    \]
+    
+    \[
+    v = -x^4 \cdot \ln|x| + c \cdot x^4
+    \]
+    
+    \[
+    \textbf{The function } y \textbf{ can be found by substituting the necessary variables.}
+    \]
+\\~\\
+
+\section{Exact Differential Equation}
+    \[
+    \left(2xy - 9x^2\right) \, dx + \left(2y + x^2 + 1\right) \, dy = 0
+    \]
+    
+    \[
+    P(x, y) = 2xy - 9x^2 \textbf{, } \quad Q(x, y) = 2y + x^2 + 1
+    \]
+    
+    \[
+    \frac{\partial P}{\partial x} = \frac{\partial Q}{\partial x} = 2x
+    \]
+    
+    \[
+    \int P(x, y) \, dx = \int (2xy - 9x^2) \, dx = x^2y - 3x^3 + R(y)
+    \]
+    
+    \[
+    \int Q(x, y) \, dy = \int (2y + x^2 + 1) \, dy = y^2 + x^2y + y + R(x)
+    \]
+    
+    \[
+    R(y) = y^2 + y \textbf{, } R(x) = -3x^3
+    \]
+    
+    \textbf{Substituting the function } $R$ \textbf{ into any of the integral results yields the function } $y$ \textbf{.}
+\\~\\
+
+\section{Clairaut Differential Equation}
+    \[
+    \textbf{This is the general view of the Clairaut differential equation: }
+    \]
+    \[
+    y = x \cdot \left(y\right)' + \psi\left((y)'\right)
+    \]
+    
+    \[
+    y = x \cdot \left(y\right)' + \left(\left(y\right)'\right)^2
+    \]
+    
+    \[
+    \textbf{Let } p = \left(y\right)' \textbf{.}
+    \]
+    
+    \[
+    \textbf{If we substitute } p \textbf{ in the equation: } y = x \cdot p + p^2
+    \]
+    
+    \[
+    \frac{d}{dx} y = \frac{d}{dx} \left(x \cdot p + p^2\right)
+    \]
+    
+    \[
+    (y)' = p + x \cdot (p)' + 2 \cdot p \cdot (p)'
+    \]
+    
+    \[
+    \textbf{If we substitute } p \textbf{ for } (y)' \textbf{ here, } p = p + x \cdot (p)' + 2 \cdot p \cdot (p)'
+    \]
+    
+    \[
+    0 = x \cdot \left(p\right)' + 2 \cdot p \cdot \left(p\right)'
+    \]
+    
+    \[
+    0 = \left(p\right)' \cdot \left(x + 2p\right)
+    \]
+    
+    \[
+    \left(p\right)' = 0 \textbf{ (general solution)}
+    \]
+    
+    \[
+    \int \left(p\right)' \, dx = \int 0 \, dx
+    \]
+    
+    \[
+    p = c
+    \]
+    
+    \[
+    \textbf{If we substitute the equation } p = c \textbf{ in the equation } y = x \cdot p + p^2 \textbf{:}
+    \]
+    \[
+    y = x \cdot c + c^2
+    \]
+    
+    \[
+    x + 2p = 0 \textbf{ (singular solution)}
+    \]
+    
+    \[
+    p = -\frac{x}{2}
+    \]
+    
+    \[
+    \left(y\right)' = -\frac{x}{2}
+    \]
+    
+    \[
+    \int \left(y\right)' \, dx = \int \left(-\frac{x}{2}\right) \, dx
+    \]
+    
+    \[
+    y = -\frac{x^2}{4} + c
+    \]
+    
+    \textbf{Instead of integrating this solution, we can substitute } p \textbf{ into the equation } $y = x \cdot p + p^2# \textbf{.}
+    
+    \[
+    p = -\frac{x}{2} \textbf{, } y = x \cdot \left(-\frac{x}{2}\right) + \left(-\frac{x}{2}\right)^2
+    \]
+\\~\\
+
+\section{Riccati Differential Equation}
+    \[
+    \textbf{This is the general view of the Riccati differential equation:}
+    \]
+    \[
+    (y)' = A(x) \cdot y^2 + B(x) \cdot y + C(x)
+    \]
+    
+    \[
+    (y)' = y^2 - \frac{y}{x} - \frac{1}{x^2} \textbf{, } y_1(x) = \frac{1}{x}
+    \]
+    
+    \[
+    \textbf{The transformation } y = v + y_1 \textbf{ is made.}
+    \]
+    
+    \[
+    y = v + \frac{1}{x}
+    \]
+    
+    \[
+    (y)' = (v)' - \frac{1}{x^2}
+    \]
+    
+    \[
+    \textbf{The obtained } y \textbf{ and } (y)' \textbf{are written in their places in the question.}
+    \]
+    
+    \[
+    (v)' - \frac{1}{x^2} = \left(v + \frac{1}{x}\right)^2 - \frac{1}{x} \cdot \left(v + \frac{1}{x}\right) - \frac{1}{x^2}
+    \]
+    
+    \[
+    \textbf{Simplified version: } (v)' - \frac{1}{x} \cdot v = v^2
+    \]
+    
+    \textbf{This equation is a Bernoulli differential equation because it looks like this: } $\left(y\right)' + P(x) \cdot y = Q(x) \cdot y^n$
+    
+    \[
+    \textbf{Continuing from Bernoulli solution, the } y \textbf{ function can be found.}
+    \]
+\\~\\
+
+\section{Riccati Differential Equation (Short Path)}
+    \[
+    (y)' = y^2 - \frac{y}{x} - \frac{1}{x^2} \textbf{, } y_1(x) = \frac{1}{x}
+    \]
+    
+    \[
+    \textbf{The transformation } y = y_1 + \frac{1}{v} \textbf{ is made.}
+    \]
+    
+    \[
+    y = \frac{1}{x} + \frac{1}{v}
+    \]
+    
+    \[
+    (y)' = -\frac{1}{x^2} - \frac{(v)'}{v^2}
+    \]
+    
+    \[
+    \textbf{The obtained } y \textbf{ and } (y)' \textbf{are written in their places in the question.}
+    \]
+    
+    \[
+    -\frac{1}{x^2} - \frac{(v)'}{v^2} = \left(\frac{1}{x} + \frac{1}{v}\right)^2 - \frac{1}{x} \cdot \left(\frac{1}{x} + \frac{1}{v}\right) - \frac{1}{x^2}
+    \]
+    
+    \[
+    \textbf{Simplified version: } -\frac{(v)'}{v^2} = \frac{1}{x \cdot v} + \frac{1}{v^2}
+    \]
+    
+    \[
+    \textbf{Multiply each side by } -v^2 \textbf{: } (v)' = -\frac{v}{x} - 1
+    \]
+    
+    \[
+    (v)' + \frac{1}{x} \cdot v = -1
+    \]
+    
+    \textbf{Since this equation is a linear differential equation, it can be solved by integration factor.}
+\\~\\
+
+\section{Solving Exact Differential Equation with Integration Factor}
+    \[
+    \textbf{1. equation: } (x^2 + y^2) \, dx + (xy) \, dy = 0
+    \]
+    
+    \[
+    \frac{\partial P}{\partial y} = 2y \neq \frac{\partial Q}{\partial x} = y
+    \]
+    
+    \[
+    \textbf{Since the equality is not satisfied, the integration factor is used.}
+    \]
+    
+    \[
+    \ln(\lambda) = \int \left(\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x}}{Q}\right) \, dx \textbf{, special case of being } \lambda = \lambda \left(x\right)
+    \]
+    
+    \[
+    ln\left(\lambda \right)=\int \:\left(\frac{2y-y}{x\cdot y}\right)dx=\int \:\left(\frac{1}{x}\right)dx=ln\left(x\right)
+    \]
+    
+    \[
+    \lambda = x
+    \]
+    
+    \[
+    \textbf{Multiply both sides of the equation in the question by } \lambda \textbf{.}
+    \]
+    
+    \[
+    (x^3 + y^2 \cdot x) \, dx + (x^2 \cdot y) \, dy = 0
+    \]
+    
+    \[
+    \frac{\partial P}{\partial x} = \frac{\partial Q}{\partial x} = 2xy
+    \]
+    
+    \textbf{Since this equality is satisfied, it can be continued to be solved with the solution method of the exact differential equation.}
+
+    \[
+    \textbf{2. equation: } \left(xy^2 + y\right)dx + \left(2y - x\right)dy = 0
+    \]
+    
+    \[
+    \frac{\partial P}{\partial x} = 2yx + 1 \neq \frac{\partial Q}{\partial x} = -1
+    \]
+    
+    \[
+    \textbf{Since the equality is not satisfied, the integration factor is used.}
+    \]
+    
+    \[
+    \ln(\lambda) = \int \left(\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x}}{Q}\right) \, dx
+    \]
+
+    \[
+    ln\left(\lambda \right)=\int \:\left(\frac{2xy+2}{2y-x}\right)dx
+    \]
+
+    \textbf{Is a } $y$ \textbf{dependent function since it does not depend only on } $x$ \textbf{. } $\lambda$ \textbf{ must depend on y:}
+    
+    \[
+    \ln(\lambda) = \int \left(\frac{\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}}{P}\right) \, dy \textbf{, special case of being } \lambda = \lambda \left(y\right)
+    \]
+
+    \[
+    \ln(\lambda) = \int \left(\frac{-2xy - 2}{xy^2 + y}\right) \, dy = \int \left(\frac{-2(xy + 1)}{y(xy + 1)}\right) \, dy = \int \left(-\frac{2}{y}\right) \, dy = \ln(y^{-2})
+    \]
+
+    \[
+    \lambda = y^{-2}
+    \]
+
+    \[
+    \textbf{Multiply both sides of the question by } \lambda \textbf{.}
+    \]
+
+    \[
+    \left(x + y^{-1}\right)dx + \left(2y^{-1} - xy^{-2}\right)dy = 0
+    \]
+    
+    \[
+    \frac{\partial P}{\partial x} = \frac{\partial Q}{\partial x} = - \frac{1}{y^2}
+    \]
+    
+    \textbf{Since this equality is satisfied, it can be continued to be solved with the solution method of the exact differential equation.}
+\\~\\
+
+\section{Separable Differential Equations}
+    \[
+    (y)' = (x + y + 1)^2
+    \]
+    
+    \[
+    \textbf{Let } u = x + y + 1 \textbf{.}
+    \]
+
+    \[
+    \textbf{Let's take the derivative of the two sides of the equation.}
+    \]
+    
+    \[
+    \frac{d}{dx} (u) = \frac{d}{dx} (x + y + 1)
+    \]
+    
+    \[
+    (u)' = 1 + (y)'
+    \]
+
+    \[
+    \textbf{Let's find } (y)' \textbf{.}
+    \]
+    
+    \[
+    (y)' = (u)' - 1
+    \]
+
+    \[
+    \textbf{Let's place the variables we found in their places in the equation.}
+    \]
+    
+    \[
+    (u)' = u^2 + 1
+    \]
+    
+    \[
+    \frac{du}{dx} = u^2 + 1
+    \]
+
+    \[
+    \textbf{Let's organize the equation.}
+    \]
+    
+    \[
+    dx = \frac{du}{u^2 + 1}
+    \]
+
+    \[
+    \textbf{Let's integrate both sides of the equation.}
+    \]
+    
+    \[
+    \int \: dx = \int \frac{1}{u^2 + 1} \: du
+    \]
+    
+    \[
+    x + c = \arctan(u)
+    \]
+
+    \textbf{When we substitute the necessary variables in the equation we find, we can reach the } $y$ \textbf{ function.}
+\\~\\
+
+\section{Some Trigonometric Derivatives and Integrals}
+    \[
+    \frac{d}{dx} \left(sin(x)\right) = cos(x)
+    \]
+
+    \[
+    \frac{d}{dx} \left(cos(x)\right) = -sin(x)
+    \]
+
+    \[
+    \frac{d}{dx} \left(tan(x)\right) = sec^2(x)
+    \]
+    
+    \[
+    \frac{d}{dx} \left(cot(x)\right) = -cosec^2(x)
+    \]
+    
+    \[
+    \frac{d}{dx} \left(sec(x)\right) = sec(x) \cdot tan(x)
+    \]
+    
+    \[
+    \frac{d}{dx} \left(cosec(x)\right) = -cosec(x) \cdot cot(x)
+    \]
+
+    \[
+    \int sin(x) \, dx = -cos(x) + c
+    \]
+    
+    \[
+    \int cos(x) \, dx = sin(x) + c
+    \]
+    
+    \[
+    \int tan(x) \, dx = -ln\left(cos(x)\right) + c
+    \]
+    
+    \[
+    \int cot(x) \, dx = ln\left(sin(x)\right) + c
+    \]
+    
+    \[
+    \int sec(x) \, dx = ln\left(sec(x) + tan(x)\right) + c
+    \]
+    
+    \[
+    \int cosec(x) \, dx = -ln\left(cosec(x) + cot(x)\right) + c
+    \]
+    
+    \[
+    \int sec^2(x) \, dx = tan(x) + c
+    \]
+    
+    \[
+    \int cosec^2(x) \, dx = -cot(x) + c
+    \]
+
+    \[
+    \frac{d}{dx} \left(arcsin(x)\right) = \frac{1}{\sqrt{1-x^2}}
+    \]
+    
+    \[
+    \frac{d}{dx} \left(arccos(x)\right) = -\frac{1}{\sqrt{1-x^2}}
+    \]
+    
+    \[
+    \frac{d}{dx} \left(arctan(x)\right) = \frac{1}{1+x^2}
+    \]
+
+    \[
+    \frac{d}{dx} \left(arccot(x)\right) = -\frac{1}{1+x^2}
+    \]
+
+    \[
+    \frac{d}{dx} \left(arccosec(x)\right) = -\frac{1}{|x| \cdot \sqrt{x^2-1}}
+    \]
+    
+    \[
+    \frac{d}{dx} \left(arcsec(x)\right) = \frac{1}{|x| \cdot \sqrt{x^2-1}}
+    \]
+
+    \[
+    \int \frac{1}{\sqrt{1-x^2}} \, dx = arcsin(x) + c
+    \]
+    
+    \[
+    \int \frac{1}{1-x^2} \, dx = arctan(x) + c
+    \]
+    
+    \[
+    \int \frac{1}{x \sqrt{x^2-1}} \, dx = arcsec|x| + c
+    \]
+\\~\\
+
+\end{document}
